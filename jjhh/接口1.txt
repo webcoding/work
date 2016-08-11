@@ -1,0 +1,161 @@
+接口地址：home.php
+
+module=Product
+action=getCategoryAndBanner
+{
+    "code": 1,
+    "data": {
+        "category": [
+            {
+                "id": 1,
+                "name": "地板"
+            },
+            {
+                "id": 2,
+                "name": "瓷砖"
+            },
+            {
+                "id": 3,
+                "name": "卫浴"
+            },
+            {
+                "id": 4,
+                "name": "家用电器"
+            }
+        ],
+        "banner": [
+            "/uploads/image/20150711/20150711180332_70825.jpg"
+        ]
+    }
+}
+
+获取产品列表
+需要提交参数如下：
+module=Product
+category_id=产品类别id(0 全部产品，其他类别)
+type=0 全部产品 1 特价产品
+返回值如下：
+{
+    "code": 1,
+    "data": [
+        {
+            "id": "4", // 产品id
+            "name": "啊舒服撒", // 产品名称
+            "category_name": "卫浴", // 产品类别
+            "original_price": "333", // 产品原价
+            "present_price": "33", // 产品现价
+            "inventory": "33", // 产品库存
+            "img_url": [
+                "/uploads/image/20150712/20150712121439_26018.jpg",
+                "/uploads/image/20150712/20150712121440_68625.jpg",
+                "/uploads/image/20150712/20150712121442_53961.jpg",
+                "/uploads/image/20150712/20150712121444_34804.jpg",
+                "/uploads/image/20150712/20150712121446_71490.jpg"
+            ],
+            "apply_count": "0" // 预约数量
+        }
+    ]
+}
+
+获取产品详情
+需要提交参数如下：
+module=Product
+action=detail
+productid=产品id
+返回值如下：
+{
+    "code": 1,
+    "data": {
+        "name": "啊舒服撒", // 产品名称
+        "subtitle": "阿什福", // 副标题
+        "category_name": "卫浴", // 产品类别
+        "original_price": "333", // 产品原价
+        "present_price": "33", // 产品现价
+        "inventory": "33", // 产品库存
+        "model": "阿斯各", // 型号
+        "color": "阿斯各", // 颜色
+        "standard": "阿斯各", // 规格
+        "material": "阿哥", // 材质
+        "service": "阿斯顿伽师瓜啊杀三个啊飒飒个啊说过撒蛋糕撒个啊杀三个", // 服务
+        "img_url": [
+            "/uploads/image/20150712/20150712121439_26018.jpg",
+            "/uploads/image/20150712/20150712121440_68625.jpg",
+            "/uploads/image/20150712/20150712121442_53961.jpg",
+            "/uploads/image/20150712/20150712121444_34804.jpg",
+            "/uploads/image/20150712/20150712121446_71490.jpg"
+        ],
+        "apply_count": "0",
+        "isapply": "0",
+        "iscollection": "0"
+    }
+}
+
+获取我的预约（收藏）列表
+需要提交参数如下：
+action=myApply（myCollection）
+返回值如下：
+{
+    "code": -1,
+    "msg": "未报名"
+}
+或者如下
+{
+    "code": 1,
+    "data": [
+        {
+            "id": "4",
+            "name": "啊舒服撒",
+            "subtitle": "阿什福",
+            "category_name": "卫浴",
+            "original_price": "333",
+            "present_price": "33",
+            "inventory": "33",
+            "model": "阿斯各",
+            "color": "阿斯各",
+            "standard": "阿斯各",
+            "material": "阿哥",
+            "service": "阿斯顿伽师瓜啊杀三个啊飒飒个啊说过撒蛋糕撒个啊杀三个",
+            "img_url": [
+                "/uploads/image/20150712/20150712121439_26018.jpg",
+                "/uploads/image/20150712/20150712121440_68625.jpg",
+                "/uploads/image/20150712/20150712121442_53961.jpg",
+                "/uploads/image/20150712/20150712121444_34804.jpg",
+                "/uploads/image/20150712/20150712121446_71490.jpg"
+            ],
+            "money": "0",
+            "apply_count": "0",
+            "isapply": "0",
+            "iscollection": "1"
+        }
+    ]
+}
+
+提交预约（无需支付的预约接口）
+需要提交参数如下：
+action=apply
+productid=产品id
+apply=1 预约 0 取消预约（不支持取消预约）
+返回值如下：
+{
+    "code": -1,
+    "msg": "未报名"
+}
+或者
+{
+    "code": 1
+}
+
+提交收藏
+需要提交参数如下：
+action=collection
+productid=产品id
+collection=1 收藏 0 取消收藏
+返回值如下：
+{
+    "code": -1,
+    "msg": "未报名"
+}
+或者
+{
+    "code": 1
+}

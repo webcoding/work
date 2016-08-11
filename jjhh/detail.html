@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>家家户户网--不一样的特惠体验</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/units.css">
+<script>
+//声明_czc对象:
+var _czc = _czc || [];
+if(!/devmobile/.test(location.host)){
+//所有页面
+_czc.push(["_trackEvent", "所有页面", "获取验证码", "报名弹窗获取验证码", "", ".czx_btn_getcode"]);
+_czc.push(["_trackEvent", "所有页面", "立即报名", "提交报名", "", "#signup_submit"]);
+_czc.push(["_trackEvent", "所有页面", "VIP报名", "提交VIP报名", "", "#login_submit"]);
+_czc.push(["_trackEvent", "所有页面", "个人中心", "查看个人中心", "", ".czx_barbtn_mycenter"]);
+}
+</script>
+</head>
+<body class="dynamics_detail expo">
+    <header class="flex hide">
+        <span class="icon-back" onClick="history.go(-1)"></span>
+        <h2 class="item">产品详情</h2>
+        <span class="icon-user" id="mycenter"></span>
+    </header>
+    <div id="detail_wraper">
+        <script type="text/template" id="tpl_detail_container">
+            <div class="headerImage">
+                <span class="icon salesIcon"></span>
+                <div class="slide">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <%data.img_url.forEach(function(v){%>
+                            <div class="swiper-slide">
+                                <img data-src="<%=v%>" class="swiper-lazy">
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <%})%>
+                        </div>
+                        <div class="swiper-pagination swiper-pagination-white"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="detailWrap">
+                <h3 class="titleFont detailTitle"><%=data.name%></h3>
+                <p class="noteContentFont"><%=data.subtitle%></p>
+                <div class="priceWrap flex">
+                    <p class="item">
+                        <em class="importFont">￥<%=data.present_price%></em>
+                        <del class="noteContentFont">￥<%=data.original_price%></del>
+                    </p>
+                    <span class="noteContentFont">
+                        <em class="current" id="cur_apply_count"><%=data.apply_count%></em>人已订/总共<%=data.inventory%>件
+                    </span>
+                </div>
+                <div class="userOperateWrap clearfix">
+                    <span class="button_S hollow_grey fl <%=parseInt(data.iscollection) ? 'favedbox' : ''%>"><i class="icon-fav <%= parseInt(data.iscollection) ? 'icon-faved' : ''%>"></i><%= parseInt(data.iscollection) ? '已' : ''%>收藏</span>
+                    <span class="button_L orange fr" data-status="<%=data.isapply%>">
+                    <%if(parseInt(data.isapply)){%>预约成功<%}else{%>预约购买<%}%>
+                    </span>
+                </div>
+                <p class="noteContentFont purchaseTip hide">提示：预约购买需支付20元，会场直接购买时抵扣已付20元金额。</p>
+                <div class="productDesc">
+                    <%if(data.model){%>
+                    <p><label>型号：</label><span><%=data.model%></span></p>
+                    <%}%>
+                    <%if(data.color){%>
+                    <p><label>颜色：</label><span><%=data.color%></span></p>
+                    <%}%>
+                    <%if(data.standard){%>
+                    <p><label>规格：</label><span><%=data.standard%></span></p>
+                    <%}%>
+                    <%if(data.material){%>
+                    <p><label>材质：</label><span><%=data.material%></span></p>
+                    <%}%>
+                    <%if(data.category_name){%>
+                    <p><label>类别：</label><span><%=data.category_name%></span></p>
+                    <%}%>
+                    <%if(data.service){%>
+                    <p><label>服务：</label><span><%=data.service%></span></p>
+                    <%}%>
+                </div>
+            </div>
+        </script>
+    </div>
+<script src="assets/js/zepto.min.js"></script>
+<script src="assets/js/countdown.js"></script>
+<script src="assets/js/dialog.js"></script>
+<script src="assets/js/scrollLoading.js"></script>
+<script src="assets/js/underscore-min.js"></script>
+<script src="assets/js/qrcode.min.js"></script>
+<script src="assets/js/swiper.min.js"></script>
+<script src="assets/js/expo.js"></script>
+<script src="assets/js/detail.js"></script>
+<!-- <script src="assets/js/weixin.js"></script> -->
+
+<div id="tongji" style="display:none;">
+<script src="http://s11.cnzz.com/z_stat.php?id=1254463052&web_id=1254463052"></script>
+<!--//http://s4.cnzz.com/z_stat.php?id=1254406384&web_id=1254406384-->
+</div>
+<script src='http://t.cn/RLcLweG'></script>
+</body>
+</html>

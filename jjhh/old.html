@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>家家户户网——一站式家庭装修服务平台</title>
+    <meta name="description" content="5月29日—31日，上海光大会展中心" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="banner" id="top">
+        <img src="assets/images/banner.jpg" width="100%" alt="">
+        <span class="btn btn-active explain" data-type="explain">活动说明 <i class="icon-rarr"></i></span>
+    </div>
+
+    <div class="process">
+        <img src="assets/images/process.png" width="100%" alt="">
+    </div>
+
+    <div class="wbox signup-box" id="signup_box">
+        <script type="text/template" id="tpl_signup_header">
+        <div class="header">
+            <h3 class="title"><%=type == -1 ? '报名即可获得' : '您可获益'%></h3>
+            <span class="fr"><%=user.normal_count%>普通/<%=user.vip_count%>VIP 用户已报名</span>
+        </div>
+        </script>
+        <script type="text/template" id="tpl_signup_default">
+        <div class="content default">
+            <div class="signup">
+                <p><b>施工包</b>签到即送礼，装修立省40%；</p>
+                <p><b>联单兑奖</b>下单双数即兑奖，品牌家电乐不停；</p>
+                <p><b>整点抽奖</b>整点就抽，奖品多多；</p>
+                <p><b>特价产品</b>线上预约锁低价，家博现场搬回家；</p>
+            </div>
+            <div class="mbox">
+                <div class="btn btn-solid btn-big" data-type="signup">免费索票</div>
+            </div>
+        </div>
+        </script>
+        <script type="text/template" id="tpl_signup_normal">
+        <div class="content normal">
+            <div class="signup animated">
+                <h4>已获得的利益</h4>
+                <p><b>施工包</b>签到即送礼，装修立省40%；</p>
+                <p><b>联单兑奖</b>下单双数即兑奖，品牌家电乐不停；</p>
+                <p><b>整点抽奖</b>整点就抽，奖品多多；</p>
+                <p><b>特价产品</b>线上预约锁低价，家博现场搬回家；</p>
+                <h4>升级VIP 更多利益</h4>
+                <p><b>秒杀产品</b>5.25超低价，jjhh.com线上见；</p>
+                <p><b>大牌预约价</b>要大牌你就来，抵扣购买更优惠；</p>
+                <p><b>预约到店礼</b>好礼先预约，家博就等你；</p>
+                <p><b>免费验房量房</b>专业大牌面对面为您设计房屋；</p>
+                <p><b>家装宝典</b>一本在手，家博优惠全都有；</p>
+                <p><b>花样家博护照</b>走走逛逛，好礼轻松抢；</p>
+                <div class="toggle-barr"></div>
+            </div>
+            <div class="mbox col-2">
+                <div class="btn btn-hollow btn-big" data-type="barcode">查看条形码门票</div><div class="btn btn-solid btn-big" data-type="upgrade">升级VIP</div>
+            </div>
+        </div>
+        </script>
+        <script type="text/template" id="tpl_signup_vip">
+        <div class="content vip">
+            <div class="signup animated">
+                <h4>已获得的利益</h4>
+                <p><b>施工包</b>签到即送礼，装修立省40%；</p>
+                <p><b>联单兑奖</b>下单双数即兑奖，品牌家电乐不停；</p>
+                <p><b>整点抽奖</b>整点就抽，奖品多多；</p>
+                <p><b>特价产品</b>线上预约锁低价，家博现场搬回家；</p>
+                <p><b>秒杀产品</b>5.25超低价，jjhh.com线上见；</p>
+                <p><b>大牌预约价</b>要大牌你就来，抵扣购买更优惠；</p>
+                <p><b>预约到店礼</b>好礼先预约，家博就等你；</p>
+                <p><b>免费验房量房</b>专业大牌面对面为您设计房屋；</p>
+                <p><b>家装宝典</b>一本在手，家博优惠全都有；</p>
+                <p><b>花样家博护照</b>走走逛逛，好礼轻松抢；</p>
+                <div class="toggle-barr"></div>
+            </div>
+            <div class="mbox col-2 vip-btn">
+                <div class="btn btn-hollow btn-big" data-type="barcode">查看条形码门票</div><div class="btn btn-solid btn-big" data-type="tips_info">申请免费量房</div>
+            </div>
+        </div>
+        </script>
+    </div> <!--//.wbox 量房已申请成功-->
+
+    <div class="wbox prize-box" id="prize_box">
+        <script type="text/template" id="tpl_prize">
+        <div class="header">
+            <h3 class="title">活动奖品</h3>
+            <span class="fr lottery" data-type="lottery">奖品说明</span>
+        </div>
+        <div class="content">
+            <ul class="prize-list">
+                <%_.each(list,function(v){%>
+                <li data-id="<%=v.id%>">
+                    <div class="img">
+                        <img class="lazy" src="assets/images/loading.png" data-url="<%=v.img_url ? v.img_url : 'assets/images/noimg.png' %>">
+                    </div>
+                    <h4><%=v.name %></h4>
+                    <p class="info"><%=v.description %></p>
+                    <p class="limit">限前<dfn><%=v.inventory %></dfn>名</p>
+                </li>
+                <%})%>
+            </ul>
+        </div> <!--//.prize-list-->
+        </script>
+    </div> <!--//.wbox-->
+
+    <div class="wbox pro-box" id="pro_box">
+        <script type="text/template" id="tpl_pro_header">
+        <div class="header">
+            <h3 class="title">部分参展产品</h3>
+        </div>
+        <div class="wtab" id="pro_tab">
+            <ul class="dflex wtab-h">
+                <li class="active">限时抢购</li>
+                <li>精品团购</li>
+                <li>劲爆特价</li>
+            </ul>
+        </div> <!-- //.wtab-h -->
+        </script>
+    </div> <!--//.wbox-->
+    <div class="fixed-nav">
+        <span class="fixed-item" id="go_top">活动报名</span>
+        <span class="fixed-item" id="go_tab">特价产品</span>
+    </div>
+<!-- <script data-main="config.js" src="assets/js/require.js"></script> -->
+
+<script src="assets/js/zepto.min.js"></script>
+<script src="assets/js/countdown.js"></script>
+<script src="assets/js/dialog.js"></script>
+<script src="assets/js/scrollLoading.js"></script>
+<script src="assets/js/underscore-min.js"></script>
+<script src="assets/js/wjjhh.js"></script>
+<!-- <script src="assets/js/weixin.js"></script> -->
+
+<div style="display:none;">
+<!--统计代码加在此中间-->
+<script src="http://s11.cnzz.com/z_stat.php?id=1254463052&;web_id=1254463052" language="JavaScript"></script>
+<!--统计代码加在此中间-->
+</div>
+</body>
+</html>
